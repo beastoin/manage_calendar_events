@@ -60,7 +60,9 @@ public class ManageCalendarEventsPlugin implements FlutterPlugin, ActivityAware,
     @Override
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
         Log.d("DART/NATIVE", "onDetachedFromEngine");
-        methodChannel.setMethodCallHandler(null);
+        if (methodChannel != null) {
+            methodChannel.setMethodCallHandler(null);
+        }
     }
 
     /**
